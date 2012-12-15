@@ -5,11 +5,7 @@ License:        MIT
 Summary:        Core X11 protocol client library
 Url:            http://xorg.freedesktop.org/
 Group:          Development/Libraries/C and C++
-
-#Git-Clone:	git://anongit.freedesktop.org/xorg/lib/libX11
-#Git-Web:       http://cgit.freedesktop.org/xorg/lib/libX11/
 Source:         %{name}-%{version}.tar.bz2
-
 BuildRequires:  autoconf >= 2.60
 BuildRequires:  automake
 BuildRequires:  libtool
