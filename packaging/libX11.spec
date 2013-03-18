@@ -4,7 +4,7 @@ Release:        0
 License:        MIT
 Summary:        Core X11 protocol client library
 Url:            http://xorg.freedesktop.org/
-Group:          Development/Libraries/C and C++
+Group:          Graphics/X Window System
 Source:         %{name}-%{version}.tar.bz2
 BuildRequires:  autoconf >= 2.60
 BuildRequires:  automake
@@ -33,7 +33,7 @@ stream connection.
 
 %package xcb
 Summary:        XCB X11 protocol client library
-Group:          System/Libraries
+Group:          Graphics/X Window System
 Requires:       %{name}-data >= %{version}
 
 %description xcb
@@ -48,7 +48,7 @@ stream connection.
 
 %package data
 Summary:        Shared data for the Core X11 protocol library
-Group:          System/Libraries
+Group:          Graphics/X Window System
 BuildArch:      noarch
 
 %description data
@@ -63,7 +63,7 @@ stream connection.
 
 %package devel
 Summary:        Development files for the Core X11 protocol library
-Group:          Development/Libraries/C and C++
+Group:          Development/Libraries
 Requires:       libX11 = %{version}
 Requires:       libX11-xcb = %{version}
 
