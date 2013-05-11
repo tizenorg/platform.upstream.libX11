@@ -104,6 +104,7 @@ rm -rf %{buildroot}%{_libdir}/X11/Xcms.txt
 %docs_package
 
 %files
+%license COPYING
 %defattr(-,root,root)
 %{_libdir}/libX11.so.6*
 
