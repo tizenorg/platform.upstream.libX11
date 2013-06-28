@@ -6,6 +6,7 @@ Summary:        Core X11 protocol client library
 Url:            http://xorg.freedesktop.org/
 Group:          Graphics/X Window System
 Source:         %{name}-%{version}.tar.bz2
+Source1001: 	libX11.manifest
 BuildRequires:  autoconf >= 2.60
 BuildRequires:  automake
 BuildRequires:  libtool
@@ -82,6 +83,7 @@ in libX11 and libX11-xcb.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %reconfigure --docdir=%_docdir/%{name} --disable-static
@@ -104,19 +106,23 @@ rm -rf %{buildroot}%{_libdir}/X11/Xcms.txt
 %docs_package
 
 %files
+%manifest %{name}.manifest
 %license COPYING
 %defattr(-,root,root)
 %{_libdir}/libX11.so.6*
 
 %files xcb
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_libdir}/libX11-xcb.so.1*
 
 %files data
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_datadir}/X11
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root)
 %{_includedir}/X11/*
 %{_libdir}/*.so
