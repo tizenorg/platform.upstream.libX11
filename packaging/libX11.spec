@@ -1,6 +1,6 @@
 Name:           libX11
 Version:        1.5.0
-Release:        0
+Release:        1
 License:        MIT
 Summary:        Core X11 protocol client library
 Url:            http://xorg.freedesktop.org/
@@ -86,7 +86,11 @@ in libX11 and libX11-xcb.
 cp %{SOURCE1001} .
 
 %build
-%reconfigure --docdir=%_docdir/%{name} --disable-static
+%reconfigure --docdir=%_docdir/%{name} --disable-static \
+           --enable-specs \
+           --enable-man-pages=3 \
+           --with-xcb=yes \
+           CFLAGS="${CFLAGS} -D_F_REDUCE_SYSCALL "
 make %{?_smp_mflags}
 
 %install
