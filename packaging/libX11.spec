@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           libX11
 Version:        1.5.0
 Release:        0
@@ -21,6 +23,10 @@ BuildRequires:  pkgconfig(xproto)
 BuildRequires:  pkgconfig(xproto) >= 7.0.13
 BuildRequires:  pkgconfig(xtrans)
 Requires:       %{name}-data >= %{version}
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 The X Window System is a network-transparent window system that was
