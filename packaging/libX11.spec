@@ -1,7 +1,7 @@
 %bcond_with x
 
 Name:           libX11
-Version:        1.5.0
+Version:        1.6.2
 Release:        0
 License:        MIT
 Summary:        Core X11 protocol client library
@@ -92,7 +92,7 @@ in libX11 and libX11-xcb.
 cp %{SOURCE1001} .
 
 %build
-%reconfigure --docdir=%_docdir/%{name} --disable-static
+%autogen --docdir=%_docdir/%{name} --disable-static
 make %{?_smp_mflags}
 
 %install
