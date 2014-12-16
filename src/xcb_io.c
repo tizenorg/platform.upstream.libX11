@@ -203,12 +203,13 @@ static int handle_error(Display *dpy, xError *err, Bool in_XReply)
 	/* Oddly, Xlib only allows extensions to suppress errors when
 	 * those errors were seen by _XReply. */
 	if(in_XReply)
-		/*
-		 * we better see if there is an extension who may
-		 * want to suppress the error.
+		/* The error in x-reply is the result of x client's request of one
+		 * of the extensions. In this case, the error must be handled by
+		 * the extension who sent the request.
 		 */
 		for(ext = dpy->ext_procs; ext; ext = ext->next)
-			if(ext->error && (*ext->error)(dpy, err, &ext->codes, &ret_code))
+			if(err->majorCode == ext->codes.major_opcode &&
+			   ext->error && (*ext->error)(dpy, err, &ext->codes, &ret_code))
 				return ret_code;
 	_XError(dpy, err);
 	return 0;
